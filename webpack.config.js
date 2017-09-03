@@ -23,7 +23,7 @@ module.exports = {
 	},
 	module: {
 		loaders: [
-			{ test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ }
+			{ test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ }
 		]
 	},
 	plugins: [
