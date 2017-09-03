@@ -17,6 +17,14 @@ export default class TextInput extends React.Component {
 		});
 	}
 
+	setDefaultValueForInput = () => {
+		const defaultValue = "Initial Value";
+
+		this.setState({
+			inputValue: defaultValue
+		});
+	}
+
 	render = () => {
 		return (
 			<div>
@@ -28,7 +36,7 @@ export default class TextInput extends React.Component {
 
 				<TextInputValue inputValue={this.state.inputValue}/>
 
-				<SetDefaultButtonInput />
+				<SetDefaultButtonInput setDefaultValue={this.setDefaultValueForInput}/>
 			</div>
 		);
 	}

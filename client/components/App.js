@@ -1,6 +1,5 @@
 import React from 'react';
 import TextInput from './TextInput.js';
-console.log(TextInput);
 
 export default class App extends React.Component {
 	render() {
