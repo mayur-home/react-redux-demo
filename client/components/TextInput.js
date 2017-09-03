@@ -1,5 +1,6 @@
 import React from 'react';
 import SetDefaultButtonInput from './SetDefaultButtonInput';
+import TextInputValue from './TextInputValue';
 
 export default class TextInput extends React.Component {
 
@@ -25,7 +26,7 @@ export default class TextInput extends React.Component {
 					onChange={this.handleChange.bind(this)}
 				/>
 
-				<p><b>Value in input field is:</b> {this.state.inputValue}</p>
+				<TextInputValue inputValue={this.state.inputValue}/>
 
 				<SetDefaultButtonInput />
 			</div>
