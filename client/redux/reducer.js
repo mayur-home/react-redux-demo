@@ -14,6 +14,14 @@ export default function reducer(state, action) {
 				id: getUniqueId(state.todos)
 			}, ...state.todos]};
 			break;
+		case 'COMPLETE_TODO':
+			state = Object.assign({}, state, {
+				todos: state.todos.map((todo) => {
+					return todo.id === action.id ?
+						Object.assign({}, todo, {completed: !todo.completed}) : todo
+				})
+			})
+			break;
 		default:
 	}
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoItem from './TodoItem'
 
 export default class TodoList extends React.Component {
 	render = () => {
@@ -6,7 +7,7 @@ export default class TodoList extends React.Component {
 			<ui>
 				{
 					this.props.todos.map((todo) => {
-						return <li key={todo.id}>{todo.text}</li>
+						return <TodoItem dispatch={this.props.dispatch} key={todo.id} todo={todo} />
 					})
 				}
 			</ui>

@@ -16,25 +16,27 @@ export default class TextInput extends React.Component {
 		});
 	}
 
-	addTodo = () => {
+	addTodo = (event) => {
+		event.preventDefault();
 		this.props.dispatch(actions.addTodo(this.state.inputValue))
 	}
 
 	render = () => {
 		return (
 			<div>
-				<input
-					type="text"
-					value={this.state.inputValue}
-					onChange={this.handleChange.bind(this)}
-				/>
+				<form onSubmit={this.addTodo}>
+					<input
+						type="text"
+						value={this.state.inputValue}
+						onChange={this.handleChange.bind(this)}
+					/>
 
-				<button
-					type="button"
-					onClick={this.addTodo}
-				>
-					Add todo
-				</button>
+					<button
+						type="submit"
+					>
+						Add todo
+					</button>
+				</form>
 			</div>
 		);
 	}
