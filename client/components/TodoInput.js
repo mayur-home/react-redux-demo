@@ -1,13 +1,12 @@
 import React from 'react';
-import SetDefaultButtonInput from './SetDefaultButtonInput';
-import TextInputValue from './TextInputValue';
+import actions from '../redux/actions';
 
 export default class TextInput extends React.Component {
 
 	constructor(props, context) {
 		super(props, context);
 		this.state = {
-			inputValue: "Initial Value"
+			inputValue: "Type your Todo here"
 		}
 	}
 
@@ -17,12 +16,8 @@ export default class TextInput extends React.Component {
 		});
 	}
 
-	setDefaultValueForInput = () => {
-		const defaultValue = "Initial Value";
-
-		this.setState({
-			inputValue: defaultValue
-		});
+	addTodo = () => {
+		this.props.dispatch(actions.addTodo(this.state.inputValue))
 	}
 
 	render = () => {
@@ -34,9 +29,12 @@ export default class TextInput extends React.Component {
 					onChange={this.handleChange.bind(this)}
 				/>
 
-				<TextInputValue inputValue={this.state.inputValue}/>
-
-				<SetDefaultButtonInput setDefaultValue={this.setDefaultValueForInput}/>
+				<button
+					type="button"
+					onClick={this.addTodo}
+				>
+					Add todo
+				</button>
 			</div>
 		);
 	}
