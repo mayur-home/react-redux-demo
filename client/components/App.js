@@ -2,14 +2,16 @@ import React from 'react';
 import {connect} from 'react-redux';
 import TodoInput from './TodoInput.js';
 import TodoList from './TodoList';
+import {bindActionCreators} from 'redux';
+import actions from '../redux/actions';
 
 class App extends React.Component {
 	render() {
 		return (
 			<div>
 				<h1>Todo List</h1>
-				<TodoInput dispatch={this.props.dispatch}/>
-				<TodoList dispatch={this.props.dispatch} todos={this.props.todos} />
+				<TodoInput addTodo={this.props.actions.addTodo}/>
+				<TodoList actions={this.props.actions} todos={this.props.todos} />
 			</div>
 		);
 	}
@@ -19,4 +21,10 @@ function mapStateToProps(state) {
 	return state;
 }
 
-export default connect(mapStateToProps)(App);
+function mapDispatchToProps(dispatch) {
+	return {
+		actions: bindActionCreators(actions, dispatch)
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

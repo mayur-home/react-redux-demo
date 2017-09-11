@@ -1,5 +1,4 @@
 import React from 'react';
-import actions from '../redux/actions';
 
 export default class TextInput extends React.Component {
 
@@ -18,7 +17,7 @@ export default class TextInput extends React.Component {
 
 	addTodo = (event) => {
 		event.preventDefault();
-		this.props.dispatch(actions.addTodo(this.state.inputValue))
+		this.props.addTodo(this.state.inputValue)
 	}
 
 	render = () => {

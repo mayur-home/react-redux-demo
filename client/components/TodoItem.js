@@ -3,11 +3,11 @@ import actions from '../redux/actions';
 
 export default class TodoItem extends React.Component {
 	markAsComplete = () => {
-		this.props.dispatch(actions.completeTodo(this.props.todo.id));
+		this.props.actions.completeTodo(this.props.todo.id);
 	}
 
 	delete = () => {
-		this.props.dispatch(actions.deleteTodo(this.props.todo.id));
+		this.props.actions.deleteTodo(this.props.todo.id);
 	}
 
 	render = () => {
