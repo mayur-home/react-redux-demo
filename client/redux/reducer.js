@@ -22,6 +22,9 @@ export default function reducer(state, action) {
 				})
 			})
 			break;
+		case 'DELETE_TODO':
+			state = {...state, todos: _.reject(state.todos, {id: action.id})};
+			break;
 		default:
 	}
 
