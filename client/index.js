@@ -5,6 +5,11 @@ import configuredStore from './redux/store';
 import {Provider} from 'react-redux';
 
 let initialState = {
+	user: {
+		name: 'John',
+		age: 35,
+		id: 333222332
+	},
 	todos: [{
 		text: 'This is first todo',
 		completed: false,

@@ -16,6 +16,12 @@ let actions = {
 			type: 'DELETE_TODO',
 			id: id
 		}
+	},
+	updateUserId: function() {
+		return {
+			type: 'UPDATE_USER_ID',
+			id: Date.now()
+		}
 	}
 };
 

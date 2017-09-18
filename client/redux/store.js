@@ -1,5 +1,5 @@
 import {applyMiddleware, compose, createStore} from 'redux';
-import reducer from './reducer';
+import reducers from './reducers';
 import logger from 'redux-logger';
 
 // TODO: configure middleware
@@ -9,5 +9,5 @@ let storeWithConfiguredMiddleware = compose(
 
 // export configuredStore with initial state value
 export default function configuredStore(initialStateValue = {todos: []}) {
-	return storeWithConfiguredMiddleware(reducer, initialStateValue)
+	return storeWithConfiguredMiddleware(reducers, initialStateValue)
 }
